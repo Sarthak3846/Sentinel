@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Sentinel — Frontend
 
 Frontend-only React app for **Sentinel**, a predictive patient deterioration
@@ -60,3 +61,6 @@ Then open the printed local URL. Routes:
 - All vitals/risk data is synthetically generated client-side for demo purposes —
   swap `src/data/patients.js` for real API calls once the backend (FastAPI + model +
   LLM layer, per the PRD) exists.
+=======
+# Sentinel
+>>>>>>> b95b75146b1a4fcf67ad41f4f009603d290eeb65
