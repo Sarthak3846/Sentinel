@@ -1,0 +1,86 @@
+.about {
+  padding: 72px 0 100px;
+  max-width: 760px;
+}
+
+.about__header { margin-bottom: 56px; }
+
+.about__eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  color: var(--brand);
+  background: var(--brand-tint);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+}
+
+.about__header h1 { font-size: 38px; margin-bottom: 16px; line-height: 1.15; }
+.about__header p { color: var(--text-secondary); font-size: 16px; line-height: 1.7; }
+
+.about__block { margin-bottom: 48px; }
+.about__block h2 { font-size: 21px; margin-bottom: 16px; }
+.about__block > p { color: var(--text-secondary); font-size: 15px; line-height: 1.75; }
+
+.arch-table {
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.arch-table__row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 20px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.arch-table__row:last-child { border-bottom: none; }
+.arch-table__layer {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--brand-dark);
+  font-weight: 600;
+}
+.arch-table__detail { font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; }
+
+.milestones {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-left: 2px solid var(--border);
+  margin-left: 10px;
+}
+.milestones__item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 16px;
+  padding: 18px 0 18px 20px;
+  position: relative;
+}
+.milestones__id {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--brand);
+  font-weight: 600;
+}
+.milestones__item h3 { font-size: 15.5px; margin-bottom: 6px; }
+.milestones__item p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+.about__caveats ul {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.about__caveats li {
+  color: var(--text-secondary);
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+@media (max-width: 640px) {
+  .arch-table__row { grid-template-columns: 1fr; gap: 6px; }
+}

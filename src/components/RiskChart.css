@@ -1,0 +1,41 @@
+.risk-chart {
+  width: 100%;
+}
+
+.risk-tooltip {
+  background: rgba(14, 31, 34, 0.82);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  backdrop-filter: blur(10px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #fff;
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  box-shadow: 0 16px 32px -12px rgba(0,0,0,0.35);
+}
+
+.risk-tooltip__time {
+  font-family: var(--font-mono);
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 6px;
+  font-size: 11px;
+}
+
+.risk-tooltip__row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 2px 0;
+}
+
+.risk-tooltip__swatch {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.risk-tooltip__row strong {
+  margin-left: auto;
+  font-family: var(--font-mono);
+}

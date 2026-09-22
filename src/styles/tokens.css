@@ -1,0 +1,140 @@
+:root {
+  /* Color */
+  --bg: #F4F9F9;
+  --surface: #FFFFFF;
+  --surface-sunken: #EDF5F5;
+  --border: #E1EBEC;
+  --border-strong: #CBDBDC;
+  --text-primary: #0E1F22;
+  --text-secondary: #4C6467;
+  --text-muted: #7C9294;
+
+  --brand: #146B73;
+  --brand-dark: #0C4A50;
+  --brand-tint: #E4F3F2;
+  --glow: #3FD8C6;
+
+  --risk-low: #2F9E6E;
+  --risk-mid: #E3A23F;
+  --risk-high: #DD5B3E;
+
+  --line: #143B3C;
+
+  /* Glass panel system */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-bg-strong: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+  --glass-shadow: 0 1px 1px rgba(14, 31, 34, 0.03), 0 20px 44px -20px rgba(12, 58, 63, 0.22);
+  --glass-blur: blur(18px);
+
+  --dark-glass-bg: rgba(12, 30, 32, 0.55);
+  --dark-glass-border: rgba(255, 255, 255, 0.12);
+
+  /* Type */
+  --font-ui: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+
+  /* Radius */
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 26px;
+
+  --shadow-card: 0 1px 2px rgba(14,31,34,0.04), 0 8px 24px -12px rgba(14,31,34,0.12);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.app-shell main {
+  flex: 1;
+}
+
+body {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(880px 480px at 12% -8%, rgba(63, 216, 198, 0.22), transparent 62%),
+    radial-gradient(720px 460px at 96% 8%, rgba(20, 107, 115, 0.14), transparent 60%),
+    radial-gradient(600px 400px at 50% 100%, rgba(63, 216, 198, 0.10), transparent 65%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+p { margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+img, svg { display: block; max-width: 100%; }
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+@media (max-width: 720px) {
+  .container { padding: 0 20px; }
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+/* Reusable glass panel utility */
+.glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: var(--glass-blur) saturate(140%);
+  backdrop-filter: var(--glass-blur) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  position: relative;
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(155deg, var(--glass-highlight), transparent 40%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}

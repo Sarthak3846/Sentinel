@@ -1,0 +1,133 @@
+.assistant-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--glass-bg-strong);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
+  backdrop-filter: blur(22px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-md);
+  box-shadow: var(--glass-shadow);
+  overflow: hidden;
+}
+
+.assistant-panel__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.assistant-panel__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--risk-low);
+  box-shadow: 0 0 0 3px rgba(47,158,110,0.18);
+  flex-shrink: 0;
+}
+
+.assistant-panel__head h4 {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.assistant-panel__head span {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.assistant-panel__messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 220px;
+}
+
+.assistant-msg {
+  font-size: 13.5px;
+  line-height: 1.6;
+  padding: 11px 13px;
+  border-radius: 14px;
+  max-width: 92%;
+}
+
+.assistant-msg--assistant {
+  background: rgba(237, 245, 245, 0.85);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+.assistant-msg--user {
+  background: linear-gradient(155deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+  box-shadow: 0 6px 14px -8px rgba(12,74,80,0.5);
+}
+
+.assistant-panel__suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 18px 14px;
+}
+
+.assistant-panel__suggestions button {
+  font-size: 12px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.5);
+  color: var(--text-secondary);
+  border-radius: 999px;
+  padding: 6px 12px;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.assistant-panel__suggestions button:hover {
+  border-color: var(--brand);
+  color: var(--brand-dark);
+}
+
+.assistant-panel__form {
+  display: flex;
+  gap: 8px;
+  padding: 14px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.assistant-panel__form input {
+  flex: 1;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 13.5px;
+  font-family: var(--font-ui);
+  background: rgba(255,255,255,0.6);
+  color: var(--text-primary);
+}
+.assistant-panel__form input:focus {
+  outline: none;
+  border-color: var(--brand);
+  background: rgba(255,255,255,0.9);
+}
+
+.assistant-panel__form button[type="submit"] {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(155deg, var(--brand), var(--brand-dark));
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  flex-shrink: 0;
+  box-shadow: 0 6px 14px -6px rgba(12,74,80,0.5);
+}
+.assistant-panel__form button[type="submit"]:hover { filter: brightness(1.08); }
