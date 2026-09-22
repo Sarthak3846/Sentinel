@@ -714,6 +714,83 @@ Sentinel can be viewed as two related research problems:
 
 This makes the project more than a conventional ML dashboard: the prediction model, baseline comparison, explanation layer and grounding behavior can all be independently evaluated.
 
+# Research & References
+
+Sentinel is informed by existing research in clinical deterioration prediction, ICU time-series modeling, electronic health record datasets, interpretable machine learning, and clinical early-warning systems.
+
+### Clinical Deterioration Prediction
+
+1. **Lightweight LLM summarization with LSTM for early ICU deterioration prediction**  
+   https://www.nature.com/articles/s41598-026-64618-1
+
+2. **Early prediction of circulatory failure in the intensive care unit using machine learning**  
+   https://www.nature.com/articles/s41591-020-0789-4
+
+3. **Improved inpatient deterioration detection in general wards by using time-series vital signs**  
+   https://www.nature.com/articles/s41598-022-16195-2
+
+4. **Explainable machine learning for real-time deterioration alert prediction to guide pre-emptive treatment**  
+   https://www.nature.com/articles/s41598-022-15877-1
+
+5. **Predicting acute clinical deterioration with interpretable machine learning to support emergency care decision making**  
+   https://www.nature.com/articles/s41598-023-40661-0
+
+6. **Development and internal validation of an EHR machine learning model for clinical deterioration in ICU linked inpatients**  
+   https://www.nature.com/articles/s41598-026-71682-0
+
+7. **A Simulated Prospective Evaluation of a Deep Learning Model for Real-Time Prediction of Clinical Deterioration Among Ward Patients**  
+   https://pmc.ncbi.nlm.nih.gov/articles/PMC8282687/
+
+8. **A sepsis early warning system is associated with improved patient outcomes**  
+   https://pmc.ncbi.nlm.nih.gov/articles/PMC9512693/
+
+### Clinical Datasets
+
+9. **MIMIC-IV, a freely accessible electronic health record dataset**  
+   https://www.nature.com/articles/s41597-022-01899-x
+
+10. **MIMIC-III, a freely accessible critical care database**  
+    https://www.nature.com/articles/sdata201635
+
+### Temporal Deep Learning and Interpretability
+
+11. **Recurrent Neural Networks for Multivariate Time Series with Missing Values (GRU-D)**  
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC5904216/
+
+12. **RETAIN: An Interpretable Predictive Model for Healthcare using Reverse Time Attention Mechanism**  
+    https://papers.nips.cc/paper_files/paper/2016/hash/231141b34c82aa95e48810a9d1b33a79-Abstract.html
+
+13. **Enhancing large language model clinical support information with machine learning risk and explainability**  
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC13100108/
+
+14. **Explainable AI in healthcare: to explain, to predict, or to describe?**  
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC12679721/
+
+15. **Explainable AI for Clinical Outcome Prediction: A Survey of Clinician Perceptions and Preferences**  
+    https://pmc.ncbi.nlm.nih.gov/articles/PMC12150750/
+
+### Clinical Early-Warning Systems
+
+16. **Development and validation of early warning score system: A systematic literature review**  
+    https://doi.org/10.1016/j.jbi.2020.103410
+
+17. **National Early Warning Score 2 (NEWS2): Standardising the assessment of acute-illness severity in the NHS**  
+    https://www.rcp.ac.uk/media/a4ibkkbf/news2-final-report_0_0.pdf
+
+### Research Context
+
+These references provide background for Sentinel's focus on:
+
+- Time-series modeling of physiological measurements
+- Early prediction of clinical deterioration
+- ICU and inpatient deterioration detection
+- MIMIC-III and MIMIC-IV clinical datasets
+- LSTM and recurrent neural networks
+- Handling missing values in clinical time series
+- Interpretable and explainable machine learning
+- Real-time clinical risk prediction
+- Clinical early-warning scores such as NEWS2
+
 ---
 
 # Disclaimer
