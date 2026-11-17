@@ -11,9 +11,13 @@ const SUGGESTIONS = [
 export default function AssistantPanel({ patient, index }) {
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
+  const [typing, setTyping] = useState(false)
   const scrollRef = useRef(null)
+  const timerRef = useRef(null)
 
   useEffect(() => {
+    window.clearTimeout(timerRef.current)
+    setTyping(false)
     setMessages([
       {
         role: 'assistant',
@@ -22,31 +26,42 @@ export default function AssistantPanel({ patient, index }) {
     ])
   }, [patient.id])
 
+  useEffect(() => () => window.clearTimeout(timerRef.current), [])
+
   useEffect(() => {
     if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+      scrollRef.current.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
     }
-  }, [messages])
+  }, [messages, typing])
 
   function send(text) {
     const question = text.trim()
     if (!question) return
     setMessages((m) => [...m, { role: 'user', text: question }])
     setInput('')
-    window.setTimeout(() => {
+    setTyping(true)
+    window.clearTimeout(timerRef.current)
+    timerRef.current = window.setTimeout(() => {
       const answer = explainWindow(patient, index)
       setMessages((m) => [...m, { role: 'assistant', text: answer }])
-    }, 380)
+      setTyping(false)
+    }, 700)
   }
 
   return (
     <div className="assistant-panel">
       <div className="assistant-panel__head">
-        <span className="assistant-panel__dot" />
-        <div>
+        <span className="assistant-panel__avatar" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L4 5.5V11C4 16.2 7.4 20.9 12 22C16.6 20.9 20 16.2 20 11V5.5L12 2Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round" />
+            <path d="M8 12.5L10.3 14.8L15.5 9.5" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </span>
+        <div className="assistant-panel__title">
           <h4>Explanation assistant</h4>
           <span>Grounded in the visible vitals window only</span>
         </div>
+        <span className="assistant-panel__dot" title="Online" />
       </div>
 
       <div className="assistant-panel__messages" ref={scrollRef}>
@@ -55,6 +70,11 @@ export default function AssistantPanel({ patient, index }) {
             {m.text}
           </div>
         ))}
+        {typing && (
+          <div className="assistant-msg assistant-msg--assistant assistant-msg--typing" aria-label="Assistant is typing">
+            <i /><i /><i />
+          </div>
+        )}
       </div>
 
       <div className="assistant-panel__suggestions">
@@ -75,7 +95,7 @@ export default function AssistantPanel({ patient, index }) {
         />
         <button type="submit" aria-label="Send">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-            <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M12 19V5M12 5L6 11M12 5L18 11" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </button>
       </form>

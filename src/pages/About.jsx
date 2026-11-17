@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './About.css'
 
 const milestones = [
@@ -16,34 +17,49 @@ const architecture = [
   { layer: 'Data', detail: 'Pre-processed MIMIC-III/IV subset, replayed as a simulated real-time stream for the demo.' },
 ]
 
+const caveats = [
+  'The site is explicit everywhere that this is a research/portfolio prototype, not a diagnostic or clinically validated tool.',
+  'MIMIC access requires credentialing (CITI training), budgeted into the project timeline before model work begins.',
+  'The LLM layer is constrained to the retrieved vitals context, to avoid generating plausible-sounding but incorrect medical explanations.',
+]
+
 export default function About() {
   return (
     <div className="about container">
       <header className="about__header">
         <span className="about__eyebrow">About this prototype</span>
-        <h1>A research concept, presented honestly</h1>
+        <h1>A research concept, <span className="accent">presented honestly</span></h1>
         <p>
           Sentinel demonstrates trend-based deterioration risk prediction and a grounded
-          LLM explanation layer. It is scoped as a portfolio / research demonstration \u2014
+          LLM explanation layer. It is scoped as a portfolio / research demonstration —
           not a certified clinical device, and not validated for diagnostic use.
         </p>
       </header>
 
       <section className="about__block">
         <h2>The problem it responds to</h2>
-        <p>
+        <div className="about__problem">
+          <div className="about__problem-card">
+            <span>Alarm fatigue</span>
+            <p>Hundreds of low-value alerts per shift desensitize staff to the ones that matter.</p>
+          </div>
+          <div className="about__problem-card">
+            <span>Late detection</span>
+            <p>Deterioration is usually visible in the trend of multiple vitals hours before any single value crosses a threshold.</p>
+          </div>
+        </div>
+        <p className="about__lead">
           Most hospital monitoring is threshold-based: an alarm fires only once a vital
-          sign crosses a fixed line. That causes alarm fatigue from hundreds of low-value
-          alerts per shift, and late detection, since deterioration is usually visible in
-          the trend of multiple vitals hours before any single value crosses a threshold.
+          sign crosses a fixed line. Sentinel looks at the trajectory instead.
         </p>
       </section>
 
       <section className="about__block">
         <h2>System architecture</h2>
         <div className="arch-table">
-          {architecture.map((row) => (
+          {architecture.map((row, i) => (
             <div className="arch-table__row" key={row.layer}>
+              <span className="arch-table__index">{String(i + 1).padStart(2, '0')}</span>
               <span className="arch-table__layer">{row.layer}</span>
               <span className="arch-table__detail">{row.detail}</span>
             </div>
@@ -53,10 +69,10 @@ export default function About() {
 
       <section className="about__block">
         <h2>Dataset</h2>
-        <p>
+        <p className="about__lead">
           MIMIC-III / MIMIC-IV is the standard, freely available (credentialed access) ICU
           dataset of de-identified vitals, lab results, and clinical notes. A reasonable
-          target label is ICU readmission within 48\u201372 hours, or a continuous
+          target label is ICU readmission within 48–72 hours, or a continuous
           deterioration risk score benchmarked against NEWS2.
         </p>
       </section>
@@ -79,11 +95,19 @@ export default function About() {
       <section className="about__block about__caveats">
         <h2>Risks &amp; caveats</h2>
         <ul>
-          <li>The site is explicit everywhere that this is a research/portfolio prototype, not a diagnostic or clinically validated tool.</li>
-          <li>MIMIC access requires credentialing (CITI training), budgeted into the project timeline before model work begins.</li>
-          <li>The LLM layer is constrained to the retrieved vitals context, to avoid generating plausible-sounding but incorrect medical explanations.</li>
+          {caveats.map((c) => (
+            <li key={c}>{c}</li>
+          ))}
         </ul>
       </section>
+
+      <div className="about__cta">
+        <div>
+          <h3>See it in action</h3>
+          <p>Pick a simulated case and watch the risk score move.</p>
+        </div>
+        <Link to="/demo" className="btn btn--primary">Open the live dashboard</Link>
+      </div>
     </div>
   )
 }

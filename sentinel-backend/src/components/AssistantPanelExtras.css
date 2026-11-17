@@ -1,0 +1,12 @@
+.assistant-msg__source {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+}
+.assistant-msg--error {
+  background: rgba(253, 224, 214, 0.7);
+  border-color: rgba(221, 91, 62, 0.35);
+}
+.assistant-panel__form input:disabled { opacity: 0.6; }

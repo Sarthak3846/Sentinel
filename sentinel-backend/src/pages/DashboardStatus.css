@@ -1,0 +1,24 @@
+.dashboard__state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-secondary);
+}
+.dashboard__state h2 { font-size: 22px; margin-bottom: 10px; }
+.dashboard__state p { max-width: 460px; margin: 0 auto 20px; font-size: 14.5px; line-height: 1.65; }
+.dashboard__state code {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  background: var(--surface-sunken);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 8px;
+}
+.dashboard__banner {
+  background: rgba(253, 224, 214, 0.7);
+  border: 1px solid rgba(221, 91, 62, 0.35);
+  color: #8A3A26;
+  font-size: 13px;
+  border-radius: 12px;
+  padding: 10px 14px;
+}
